@@ -1,6 +1,6 @@
 import { Table, Row, Col, Input, Select, Space, Typography } from 'antd';
-import { useOPD } from '../../hooks/useOPD';
-import { useTableColumns } from './TableColumns';
+import { useOPD } from '../../../hooks/useOPD';
+import {TableColumns}  from './TableColumns';
 
 const OPDTable = () => {
   const {
@@ -14,7 +14,7 @@ const OPDTable = () => {
     setSearchQuery,
   } = useOPD();
 
-  const columns = useTableColumns();
+  const columns = TableColumns();
 
   const handleTableChange = (pagination: any) => {
     setCurrentPage(pagination.current);

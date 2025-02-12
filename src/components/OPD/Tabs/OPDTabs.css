@@ -1,0 +1,12 @@
+.opd-tabs .ant-tabs-tab {
+    background: white !important;
+    color: black !important;
+}
+
+.opd-tabs .ant-tabs-tab-active {
+    background: #1890ff !important;
+}
+
+.opd-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: white !important;
+}

@@ -1,4 +1,3 @@
-// src/components/OPD/Modal.tsx
 import React from 'react';
 import { Modal, Space, Typography, Card, Row, Col, Tag } from 'antd';
 import { 
@@ -9,7 +8,7 @@ import {
   TeamOutlined,
   NumberOutlined
 } from '@ant-design/icons';
-import { useOPD } from '../../hooks/useOPD';
+import { useOPD } from '../../../hooks/useOPD';
 
 interface InfoProps { 
     icon: React.ReactNode; 

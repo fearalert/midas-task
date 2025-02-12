@@ -1,7 +1,7 @@
 import './App.css'
 import 'antd/dist/reset.css';
 import { OPDProvider } from './context/OPDContext';
-import OPDDashboard from './components/OPD/OPDDashboard';
+import OPDDashboard from './pages/OPD/OPDDashboard';
 
 function App() {
 

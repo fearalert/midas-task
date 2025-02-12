@@ -1,10 +1,10 @@
 import { Typography, Select, Button } from 'antd';
 import { EyeOutlined } from '@ant-design/icons';
 import { ColumnsType } from 'antd/es/table';
-import { Patient } from '../../types/types';
-import { useOPD } from '../../hooks/useOPD';
+import { Patient } from '../../../types/types';
+import { useOPD } from '../../../hooks/useOPD';
 
-export const useTableColumns = () => {
+export function TableColumns() {
   const { setSelectedPatient, setIsModalVisible } = useOPD();
 
   const showPatientDetails = (record: Patient) => {
