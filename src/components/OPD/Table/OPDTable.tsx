@@ -69,6 +69,45 @@ const OPDTable = () => {
           showQuickJumper: true,
           showTotal: (total, range) =>
             `${range[0]}-${range[1]} of ${total} items`,
+          itemRender: (page, type, _originalElement) => {
+            if (type === 'prev') {
+              return (
+                <span
+                  style={{
+                    padding: '4px 12px',
+                    borderRadius: '4px',
+                    border: '1px solid #ddd',
+                    margin: '0 5px',
+                  }}>
+                  {'<'}
+                </span>
+              );
+            }
+            if (type === 'next') {
+              return (
+                <span
+                  style={{
+                    padding: '4px 8px',
+                    borderRadius: '4px',
+                    border: '1px solid #ddd',
+                    margin: '0 5px',
+                  }}>
+                  {'>'}
+                </span>
+              );
+            }
+            return (
+              <span
+                style={{
+                  padding: '4px 8px',
+                  borderRadius: '4px',
+                  border: '1px solid #ddd',
+                  margin: '0',
+                }}>
+                {page}
+              </span>
+            );
+          },
         }}
         onChange={handleTableChange}
         scroll={{ x: 'max-content' }}
