@@ -17,6 +17,7 @@ const CardComponent = ({
   title,
   icon,
   value,
+  unit,
   queueValue = '',
   titleSuffix,
 }: CardComponentProps) => {
@@ -63,6 +64,13 @@ const CardComponent = ({
                 style={{ margin: 0, fontSize: 20 }}>
                 {value}
               </Typography.Title>
+              {unit && (
+                <Typography.Text
+                  type="secondary"
+                  style={{ fontSize: 14 }}>
+                  {unit}
+                </Typography.Text>
+              )}
             </Space>
 
             {queueValue && (
