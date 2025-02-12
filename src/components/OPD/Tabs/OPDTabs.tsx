@@ -1,3 +1,5 @@
+/** @format */
+
 import { useMemo } from 'react';
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
@@ -10,10 +12,14 @@ const OPDTabs = () => {
 
   const counts = useMemo(() => {
     return {
-      new: filteredData.filter(patient => patient.status === 'New').length,
-      nurseSeenCount: filteredData.filter(patient => patient.status === 'Follow Up').length,
-      doctorVisitedCount: filteredData.filter(patient => patient.status === 'Free').length,
-      total: filteredData.length
+      new: filteredData.filter((patient) => patient.status === 'New').length,
+      nurseSeenCount: filteredData.filter(
+        (patient) => patient.status === 'Follow Up'
+      ).length,
+      doctorVisitedCount: filteredData.filter(
+        (patient) => patient.status === 'Free'
+      ).length,
+      total: filteredData.length,
     };
   }, [filteredData]);
 
@@ -45,7 +51,7 @@ const OPDTabs = () => {
   };
 
   return (
-    <Tabs 
+    <Tabs
       activeKey={activeTab}
       items={items}
       onChange={handleTabChange}

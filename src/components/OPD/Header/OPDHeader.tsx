@@ -1,5 +1,14 @@
+/** @format */
+
 import { Row, Space, Typography, Button } from 'antd';
-import { MenuUnfoldOutlined, AlignCenterOutlined, SyncOutlined, EyeInvisibleOutlined, EyeOutlined, FileExcelOutlined } from '@ant-design/icons';
+import {
+  MenuUnfoldOutlined,
+  AlignCenterOutlined,
+  SyncOutlined,
+  EyeInvisibleOutlined,
+  EyeOutlined,
+  FileExcelOutlined,
+} from '@ant-design/icons';
 import { message } from 'antd';
 import * as XLSX from 'xlsx';
 import { useOPD } from '../../../hooks/useOPD';
@@ -40,33 +49,37 @@ const Header = () => {
   };
 
   return (
-    <Row justify="space-between" align="middle">
+    <Row
+      justify="space-between"
+      align="middle">
       <Space>
-        <MenuUnfoldOutlined style={{ color: "#000" }}/>
-        <Typography.Title level={4} style={{ margin: 0 }}>
+        <MenuUnfoldOutlined style={{ color: '#000' }} />
+        <Typography.Title
+          level={4}
+          style={{ margin: 0 }}>
           OPD Department
         </Typography.Title>
-        <Button 
-          icon={<AlignCenterOutlined />} 
-          onClick={applyFilter} 
-          type={isFilterActive ? "primary" : "default"}
-        >
+        <Button
+          icon={<AlignCenterOutlined />}
+          onClick={applyFilter}
+          type={isFilterActive ? 'primary' : 'default'}>
           Filter
         </Button>
-        <Button icon={<SyncOutlined />} onClick={resetFilter} />
+        <Button
+          icon={<SyncOutlined />}
+          onClick={resetFilter}
+        />
       </Space>
       <Space>
-        <Button 
-          icon={isFilterVisible ? <EyeInvisibleOutlined /> : <EyeOutlined />} 
-          onClick={toggleFilter}
-        >
-          {isFilterVisible ? "Hide Filter" : "Show Filter"}
+        <Button
+          icon={isFilterVisible ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+          onClick={toggleFilter}>
+          {isFilterVisible ? 'Hide Filter' : 'Show Filter'}
         </Button>
-        <Button 
-          icon={<FileExcelOutlined />} 
-          style={{ color: "#52c41a" }} 
-          onClick={downloadExcel}
-        >
+        <Button
+          icon={<FileExcelOutlined />}
+          style={{ color: '#52c41a' }}
+          onClick={downloadExcel}>
           Download Excel
         </Button>
       </Space>

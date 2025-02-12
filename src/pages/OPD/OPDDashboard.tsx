@@ -1,3 +1,5 @@
+/** @format */
+
 import { ConfigProvider } from 'antd';
 import { OPDProvider } from '../../context/OPDContext';
 import OPDContent from './Content';

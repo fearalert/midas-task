@@ -1,29 +1,27 @@
+/** @format */
+
 import React from 'react';
 import { Modal, Space, Typography, Card, Row, Col, Tag } from 'antd';
-import { 
-  UserOutlined, 
-  IdcardOutlined, 
-  CalendarOutlined, 
+import {
+  UserOutlined,
+  IdcardOutlined,
+  CalendarOutlined,
   MedicineBoxOutlined,
   TeamOutlined,
-  NumberOutlined
+  NumberOutlined,
 } from '@ant-design/icons';
 import { useOPD } from '../../../hooks/useOPD';
 
-interface InfoProps { 
-    icon: React.ReactNode; 
-    label: string; 
-    value: string 
-} 
+interface InfoProps {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}
 
 const PatientModal = () => {
   const { selectedPatient, isModalVisible, setIsModalVisible } = useOPD();
 
-  const InfoItem: React.FC<InfoProps> = ({ 
-    icon, 
-    label, 
-    value 
-  }) => (
+  const InfoItem: React.FC<InfoProps> = ({ icon, label, value }) => (
     <Space>
       {icon}
       <Typography.Text type="secondary">{label}:</Typography.Text>
@@ -34,8 +32,8 @@ const PatientModal = () => {
   const getStatusColor = (status: string) => {
     const colors: { [key: string]: string } = {
       'Follow Up': 'blue',
-      'New': 'orange',
-      'Free': 'green'
+      New: 'orange',
+      Free: 'green',
     };
     return colors[status] || 'default';
   };
@@ -51,15 +49,19 @@ const PatientModal = () => {
       open={isModalVisible}
       onCancel={() => setIsModalVisible(false)}
       footer={null}
-      width={600}
-    >
+      width={600}>
       {selectedPatient && (
-        <Space direction="vertical" style={{ width: '100%' }} size="large">
+        <Space
+          direction="vertical"
+          style={{ width: '100%' }}
+          size="large">
           <Card>
             <Row gutter={[16, 16]}>
               <Col span={24}>
                 <Space size="large">
-                  <Typography.Title level={4} style={{ margin: 0 }}>
+                  <Typography.Title
+                    level={4}
+                    style={{ margin: 0 }}>
                     {selectedPatient.patientName}
                   </Typography.Title>
                   <Tag color={getStatusColor(selectedPatient.status)}>
@@ -67,49 +69,49 @@ const PatientModal = () => {
                   </Tag>
                 </Space>
               </Col>
-              
+
               <Col span={12}>
-                <InfoItem 
+                <InfoItem
                   icon={<IdcardOutlined />}
                   label="UHID"
                   value={selectedPatient.uhid}
                 />
               </Col>
-              
+
               <Col span={12}>
-                <InfoItem 
+                <InfoItem
                   icon={<UserOutlined />}
                   label="Age/Gender"
                   value={selectedPatient.ageGender}
                 />
               </Col>
-              
+
               <Col span={12}>
-                <InfoItem 
+                <InfoItem
                   icon={<MedicineBoxOutlined />}
                   label="Department"
                   value={selectedPatient.department}
                 />
               </Col>
-              
+
               <Col span={12}>
-                <InfoItem 
+                <InfoItem
                   icon={<TeamOutlined />}
                   label="Doctor"
                   value={selectedPatient.doctorName}
                 />
               </Col>
-              
+
               <Col span={12}>
-                <InfoItem 
+                <InfoItem
                   icon={<NumberOutlined />}
                   label="Queue No"
                   value={selectedPatient.queueNo}
                 />
               </Col>
-              
+
               <Col span={12}>
-                <InfoItem 
+                <InfoItem
                   icon={<CalendarOutlined />}
                   label="Billing Date"
                   value={selectedPatient.billingDateTime}
@@ -118,7 +120,9 @@ const PatientModal = () => {
             </Row>
           </Card>
 
-          <Card title="Previous Visit History" size="small">
+          <Card
+            title="Previous Visit History"
+            size="small">
             <Typography.Text type="secondary">
               Previous Record: {selectedPatient.previousRecord} visits
             </Typography.Text>

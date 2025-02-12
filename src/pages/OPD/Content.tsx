@@ -1,3 +1,5 @@
+/** @format */
+
 import { Layout, Space, Card } from 'antd';
 import { useOPD } from '../../hooks/useOPD';
 import Filters from '../../components/OPD/Filters/OPDFilters';
@@ -11,8 +13,11 @@ const OPDContent = () => {
   const { isFilterVisible } = useOPD();
 
   return (
-    <Layout style={{ minHeight: "100vh", padding: 24, background: "#f5f5f5" }}>
-      <Space direction="vertical" size="middle" style={{ width: "100%" }}>
+    <Layout style={{ minHeight: '100vh', padding: 24, background: '#f5f5f5' }}>
+      <Space
+        direction="vertical"
+        size="middle"
+        style={{ width: '100%' }}>
         <BreadcrumbNav />
         <Header />
         {isFilterVisible && <Filters />}
@@ -26,4 +31,4 @@ const OPDContent = () => {
   );
 };
 
-export default OPDContent
+export default OPDContent;

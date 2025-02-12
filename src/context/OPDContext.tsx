@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { createContext, useState, useMemo } from 'react';
 import { useDebounce } from '../hooks/useDebounce';
 import { mockData } from '../data/mockData';
@@ -34,16 +36,16 @@ interface OPDContextType {
 
 export const OPDContext = createContext<OPDContextType | undefined>(undefined);
 
-export const OPDProvider= ({ children }: { children: React.ReactNode }) => {
-  const [selectedDoctor, setSelectedDoctor] = useState<string>("");
+export const OPDProvider = ({ children }: { children: React.ReactNode }) => {
+  const [selectedDoctor, setSelectedDoctor] = useState<string>('');
   const [fromDate, setFromDate] = useState<Date | null>(null);
   const [toDate, setToDate] = useState<Date | null>(null);
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
   const [isFilterVisible, setIsFilterVisible] = useState<boolean>(true);
   const [isFilterActive, setIsFilterActive] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<string>("1");
+  const [activeTab, setActiveTab] = useState<string>('1');
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
 
@@ -52,18 +54,22 @@ export const OPDProvider= ({ children }: { children: React.ReactNode }) => {
   const filteredData = useMemo(() => {
     return mockData.filter((item) => {
       const matchesSearch = Object.values(item).some(
-        (value) => typeof value === "string" && value.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
+        (value) =>
+          typeof value === 'string' &&
+          value.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
       );
-      const matchesDoctor = !selectedDoctor || item.doctorName === selectedDoctor;
+      const matchesDoctor =
+        !selectedDoctor || item.doctorName === selectedDoctor;
       const matchesDateRange =
         !fromDate ||
         !toDate ||
-        (dayjs(item.billingDateTime).isAfter(fromDate) && dayjs(item.billingDateTime).isBefore(toDate));
+        (dayjs(item.billingDateTime).isAfter(fromDate) &&
+          dayjs(item.billingDateTime).isBefore(toDate));
       const matchesTab =
-        activeTab === "4" ||
-        (activeTab === "1" && item.status === "New") ||
-        (activeTab === "2" && item.status === "Follow Up") ||
-        (activeTab === "3" && item.status === "Free");
+        activeTab === '4' ||
+        (activeTab === '1' && item.status === 'New') ||
+        (activeTab === '2' && item.status === 'Follow Up') ||
+        (activeTab === '3' && item.status === 'Free');
       return matchesSearch && matchesDoctor && matchesDateRange && matchesTab;
     });
   }, [debouncedSearchQuery, selectedDoctor, fromDate, toDate, activeTab]);
